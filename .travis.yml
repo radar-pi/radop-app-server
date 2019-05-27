@@ -1,12 +1,14 @@
 language: node_js
+node_js:
+  - "10"
 env:
   global:
     - CC_TEST_REPORTER_ID=20915e2960d7824bb62d0a06c75c69cc519191c2c90952a0a4165c80eaceaf8c
 services:
   docker
 before_install:
-  - npm install -g
-  - npm i -g eslint
+  - npm install -g -q
+  - npm i -g eslint -q
 before_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
