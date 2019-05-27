@@ -16,6 +16,7 @@ before_script:
 script:
   - eslint .
   - echo $DOCKERHUB_PASS | docker login --username $DOCKERHUB_USER --password-stdin
+  - cat .env.example > .env
 deploy:
   provider: script
   script: bash deploy.sh

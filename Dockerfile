@@ -4,7 +4,7 @@ WORKDIR /app
 
 ADD .env /app
 
-EXPOSE ${PORT}
+EXPOSE 3333
 
 ADD package.json /app
 
