@@ -19,7 +19,7 @@ class MaintenanceController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async index ({ request, response, view }) {
+  async index ({ request }) {
     const { latitude, longitude } = request.all()
 
     const maintenances = Maintenance.query()
@@ -37,7 +37,7 @@ class MaintenanceController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async store ({ auth, request, response }) {
+  async store ({ auth, request }) {
     const { id } = auth.user
     const data = request.only([
       'date',
@@ -62,7 +62,7 @@ class MaintenanceController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async show ({ params, request, response, view }) {
+  async show ({ params }) {
     const maintenance = await Maintenance.findOrFail(params.id)
 
     return maintenance
@@ -76,7 +76,7 @@ class MaintenanceController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async update ({ params, request, response }) {
+  async update ({ params, request }) {
     const maintenance = await Maintenance.findOrFail(params.id)
 
     const data = request.only([
