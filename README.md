@@ -31,7 +31,45 @@ adonis serve --dev
 
 Com isso todas as rotas do __RAS__ estarão disponíveis na URL: `http://localhost:3333`
 
-## Execução do ambiente de testes
+Caso queira testar via docker compose basta rodar o comando:
+
+```shell
+docker-compose -f docker-compose.yml up --build
+```
+
+### Fazer as Migrações das Tabelas
+
+Assim que seu ambiente local esteja rodando execute o comando:
+
+```shell
+adonis migration:run
+```
+
+Caso o seu ambiente esteja rodando com o docker compose basta rodar:
+
+```shell
+docker-compose run --rm server adonis migration:run
+```
+
+Com isso todas as migrações do banco vão ser registradas no seu banco local.
+
+### Populando o Banco de Dados
+
+Agora para inserir alguns objetos no banco de dados rode o seguinte comando:
+
+```shell
+adonis seed
+```
+
+Ou caso o seu ambiente esteja rodando com o docker compose basta rodar:
+
+```shell
+docker-compose run --rm server adonis seed
+```
+
+Agora o seu banco está populado e pronto para testes.
+
+## Execução do Ambiente de Testes
 
 ### Testes
 
@@ -54,7 +92,7 @@ docker build -t radop-app-server:latest .
 Para rodar a imagem construída do __RAS__ utilize do Docker Compose presente no projeto, com isto o serviço irá subir já com o _container_ do banco de dados (PostgreSQL). O comando para rodar os serviços é:
 
 ```bash
-docker-compose -f docker-compose.yml up
+docker-compose -f docker-compose.yml up --build
 ```
 
 __OBS__: Caso não tenha construído a imagem antes basta adicionar a _flag_ `--build` ao final do comando do Docker Compose. Caso queira que os serviços rodem no _background_ bata adicionar a _flag_ `-d` ao final do comando do Docker Compose.

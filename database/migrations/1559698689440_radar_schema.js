@@ -3,9 +3,9 @@
 /** @type {import('@adonisjs/lucid/src/Schema')} */
 const Schema = use('Schema')
 
-class MaintenanceSchema extends Schema {
+class RadarSchema extends Schema {
   up () {
-    this.create('maintenances', (table) => {
+    this.create('radars', (table) => {
       table.increments()
       table
         .integer('user_id')
@@ -13,20 +13,17 @@ class MaintenanceSchema extends Schema {
         .references('id')
         .inTable('users')
         .onUpdate('CASCADE')
-        .onDelete('CASCADE')
-      table.string('date').notNullable()
-      table.time('time').notNullable()
-      table.text('reason').notNullable()
+        .onDelete('CASCADE').notNullable()
+      table.string('name', 200).notNullable().unique()
       table.decimal('latitude', 9, 6).notNullable()
       table.decimal('longitude', 9, 6).notNullable()
-      table.string('radar').notNullable()
       table.timestamps()
     })
   }
 
   down () {
-    this.drop('maintenances')
+    this.drop('radars')
   }
 }
 
-module.exports = MaintenanceSchema
+module.exports = RadarSchema

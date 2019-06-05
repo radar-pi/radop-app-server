@@ -19,12 +19,8 @@ class MaintenanceController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async index ({ request }) {
-    const { latitude, longitude } = request.all()
-
-    const maintenances = Maintenance.query()
-      .nearBy(latitude, longitude, 20)
-      .fetch()
+  async index () {
+    const maintenances = Maintenance.all()
 
     return maintenances
   }
@@ -45,7 +41,7 @@ class MaintenanceController {
       'reason',
       'latitude',
       'longitude',
-      'radar'
+      'radar_id'
     ])
 
     const maintenance = await Maintenance.create({ ...data, user_id: id })
@@ -83,9 +79,6 @@ class MaintenanceController {
       'date',
       'time',
       'reason',
-      'latitude',
-      'longitude',
-      'radar'
     ])
 
     maintenance.merge(data)

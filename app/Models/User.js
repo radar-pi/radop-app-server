@@ -35,6 +35,10 @@ class User extends Model {
     return this.hasMany('App/Models/Token')
   }
 
+  radars () {
+    return this.hasMany('App/Models/Radar')
+  }
+
   maintenances () {
     return this.hasMany('App/Models/Maintenance')
   }

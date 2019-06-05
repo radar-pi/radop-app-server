@@ -22,8 +22,14 @@ Route.get('/', () => {
 
 Route.post('/users', 'UserController.create')
 
+Route.get('/users/all', 'UserController.index')
+
 Route.post('/sessions', 'SessionController.create')
 
 Route.resource('maintenances', 'MaintenanceController')
+  .apiOnly()
+  .middleware('auth')
+
+Route.resource('radar', 'RadarController')
   .apiOnly()
   .middleware('auth')
