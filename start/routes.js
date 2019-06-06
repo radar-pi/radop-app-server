@@ -30,6 +30,6 @@ Route.resource('maintenances', 'MaintenanceController')
   .apiOnly()
   .middleware('auth')
 
-Route.resource('radar', 'RadarController')
+Route.resource('radars', 'RadarController')
   .apiOnly()
   .middleware('auth')

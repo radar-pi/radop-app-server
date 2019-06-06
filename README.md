@@ -58,13 +58,17 @@ Com isso todas as migrações do banco vão ser registradas no seu banco local.
 Agora para inserir alguns objetos no banco de dados rode o seguinte comando:
 
 ```shell
-adonis seed
+adonis seed --files UserSeeder.js
+adonis seed --files RadarSeeder.js
+adonis seed --files MaintanenceSeeder.js
 ```
 
 Ou caso o seu ambiente esteja rodando com o docker compose basta rodar:
 
 ```shell
-docker-compose run --rm server adonis seed
+docker-compose run --rm server adonis seed --files UserSeeder.js
+docker-compose run --rm server adonis seed --files RadarSeeder.js
+docker-compose run --rm server adonis seed --files MaintanenceSeeder.js
 ```
 
 Agora o seu banco está populado e pronto para testes.

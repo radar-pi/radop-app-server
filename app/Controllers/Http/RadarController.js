@@ -23,7 +23,7 @@ class RadarController {
     const { latitude, longitude } = request.all()
 
     const radars = Radar.query()
-      .nearBy(latitude, longitude, 25)
+      .nearBy(latitude, longitude, 20)
       .fetch()
 
     return radars

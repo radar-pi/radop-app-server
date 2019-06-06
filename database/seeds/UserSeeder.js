@@ -17,9 +17,9 @@ const Hash = use('Hash')
 
 class UserSeeder {
   async run () {
-    const encryptedPassword = await Hash.make('123456')
+    const encryptedPassword = await Hash.make('123456');
 
-    const now = new Date().toISOString()
+    const now = new Date().toISOString();
 
     await Database.table('users').insert([
       {
