@@ -33,3 +33,6 @@ Route.resource('maintenances', 'MaintenanceController')
 Route.resource('radars', 'RadarController')
   .apiOnly()
   .middleware('auth')
+
+Route.get('radars/info/:id', 'RadarController.info')
+  .middleware('auth')

@@ -15,7 +15,7 @@ const Database = use('Database')
 
 class RadarSeeder {
   async run () {
-    const now = new Date().toISOString();
+    const now = new Date().toISOString()
 
     await Database.table('radars').insert([
       {

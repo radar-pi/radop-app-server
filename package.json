@@ -26,8 +26,11 @@
     "@adonisjs/framework": "^5.0.9",
     "@adonisjs/ignitor": "^2.0.8",
     "@adonisjs/lucid": "^6.1.3",
+    "jshint": "^2.10.2",
     "jslint": "^0.12.1",
-    "pg": "^7.11.0"
+    "pg": "^7.11.0",
+    "uuid": "^3.3.2",
+    "ws": "^7.0.0"
   },
   "devDependencies": {
     "eslint": "^5.16.0",

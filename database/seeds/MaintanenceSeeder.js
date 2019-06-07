@@ -15,16 +15,16 @@ const Database = use('Database')
 class MaintanenceSeeder {
   async run () {
     function randomDate (start, end) {
-      const date = new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime())).toLocaleDateString('pt-BR');
-      return date;
+      const date = new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime())).toLocaleDateString('pt-BR')
+      return date
     }
 
     function randomTime (start, end) {
-      const date = new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime())).toLocaleTimeString();
-      return date;
+      const date = new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime())).toLocaleTimeString()
+      return date
     }
 
-    const now = new Date().toISOString();
+    const now = new Date().toISOString()
 
     await Database.table('maintenances').insert([
       {
