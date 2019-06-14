@@ -61,6 +61,7 @@ Agora para inserir alguns objetos no banco de dados rode o seguinte comando:
 adonis seed --files UserSeeder.js
 adonis seed --files RadarSeeder.js
 adonis seed --files MaintanenceSeeder.js
+adonis seed --files StatusSeeder.js
 ```
 
 Ou caso o seu ambiente esteja rodando com o docker compose basta rodar:
@@ -69,9 +70,16 @@ Ou caso o seu ambiente esteja rodando com o docker compose basta rodar:
 docker-compose run --rm server adonis seed --files UserSeeder.js
 docker-compose run --rm server adonis seed --files RadarSeeder.js
 docker-compose run --rm server adonis seed --files MaintanenceSeeder.js
+docker-compose run --rm server adonis seed --files StatusSeeder.js
 ```
 
 Agora o seu banco está populado e pronto para testes.
+
+__OBS__: Comando em uma linha só pode ser:
+
+```shell
+docker-compose run --rm server adonis migration:run && docker-compose run --rm server adonis seed --files UserSeeder.js && docker-compose run --rm server adonis seed --files RadarSeeder.js && docker-compose run --rm server adonis seed --files MaintanenceSeeder.js && docker-compose run --rm server adonis seed --files StatusSeeder.js
+```
 
 ## Execução do Ambiente de Testes
 

@@ -173,7 +173,7 @@ module.exports = {
     | based on HTTP headers/query string.
     |
     */
-    locale: 'en'
+    locale: 'br'
   },
 
   logger: {
@@ -201,8 +201,8 @@ module.exports = {
     */
     console: {
       driver: 'console',
-      name: 'adonis-app',
-      level: 'info'
+      name: 'radop-app-server',
+      level: 'debug'
     },
 
     /*
@@ -218,7 +218,7 @@ module.exports = {
     */
     file: {
       driver: 'file',
-      name: 'adonis-app',
+      name: 'radop-app-server',
       filename: 'adonis.log',
       level: 'info'
     }

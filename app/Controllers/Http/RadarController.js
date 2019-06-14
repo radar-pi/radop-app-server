@@ -30,56 +30,6 @@ class RadarController {
   }
 
   /**
-   * Show a list of oneradars infos.
-   * GET radars/info/:id
-   *
-   * @param {Params} ctx.params
-   * @param {Response} ctx.response
-   */
-  async info ({ params, response }) {
-    const uuid = require('uuid/v4')
-    const WebSocket = require('ws')
-
-    const url = 'ws://www.radop.ml:8765/filter'
-    const socket = new WebSocket(url)
-
-    socket.onopen = () => {
-      const radar_id = parseInt(params.id)
-      const type = 'rethink-manager-call'
-      const time = new Date().toISOString()
-      const filter = {
-        'payload': {
-          'radar_id': radar_id
-        }
-      }
-      const database = 'RADAR'
-      const table = 'status'
-      const identifier = uuid()
-
-      const message = {
-        'id': identifier,
-        'type': type,
-        'payload': {
-          'database': database,
-          'table': table,
-          'filter': JSON.stringify(filter)
-        },
-        'time': time
-      }
-
-      socket.send(JSON.stringify(message))
-    }
-    
-    socket.onmessage = result => {
-      response.status(200).send(JSON.parse(result))
-    }
-
-    socket.onerror = err => {
-      response.status(500).send({error: err})
-    }
-  }
-
-  /**
    * Create/save a new radar.
    * POST radars
    *

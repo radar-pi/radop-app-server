@@ -14,6 +14,10 @@ class Radar extends Model {
     return this.hasMany('App/Models/Maintenance')
   }
 
+  status () {
+    return this.hasMany('App/Models/Status')
+  }
+
   static scopeNearBy (query, latitude, longitude, distance) {
     const haversine = `(6371 * acos(cos(radians(${latitude}))
       * cos(radians(latitude))

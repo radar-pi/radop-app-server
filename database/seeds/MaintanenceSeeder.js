@@ -16,7 +16,7 @@ class MaintanenceSeeder {
   async run () {
     function randomDate (start, end) {
       const date = new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime())).toLocaleDateString('pt-BR')
-      return date
+      return date.slice(0, 10)
     }
 
     function randomTime (start, end) {
