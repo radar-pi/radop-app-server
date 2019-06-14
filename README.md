@@ -2,7 +2,7 @@
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/dff6da6ed1e438b942b5/maintainability)](https://codeclimate.com/github/radar-pi/radop-app-server/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/dff6da6ed1e438b942b5/test_coverage)](https://codeclimate.com/github/radar-pi/radop-app-server/test_coverage)
-[![Build Status](https://travis-ci.org/radar-pi/radop-app-server.svg?branch=master)](https://travis-ci.org/radar-pi/radop-app-server)
+[![Build Status](https://travis-ci.org/radar-pi/radop-app-server.svg?branch=develop)](https://travis-ci.org/radar-pi/radop-app-server)
 
 O __RAS__ (RaDop App Server) é o serviço responsável pelo _back-end_ do aplicativo RaDop. Neste projeto está contemplado os __CRUDs__ (_Create_, _Read_, _Update_ e _Delete_) necessário para o funcionamento do app, assim como as funções de autenticação de usuário.
 
