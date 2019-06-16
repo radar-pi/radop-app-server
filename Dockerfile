@@ -8,7 +8,7 @@ EXPOSE 3333
 
 ADD package.json /app
 
-RUN npm install
+RUN npm i -g
 
 RUN npm i -g @adonisjs/cli
 
