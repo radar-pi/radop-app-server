@@ -9,6 +9,16 @@ class UserController {
     return users
   }
 
+  async find({request}) {
+    const { email } = request.all()
+    const user = await User
+      .query()
+      .where('email', '=', email)
+      .fetch()
+    
+    return user
+  }
+
   async create ({request}) {
     const data = request.only(['username', 'email', 'password'])
 

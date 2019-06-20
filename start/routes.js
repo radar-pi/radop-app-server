@@ -23,6 +23,10 @@ Route.get('/', () => {
 Route.post('/users', 'UserController.create')
 
 Route.get('/users/all', 'UserController.index')
+  .middleware('auth')
+
+Route.get('/user/find', 'UserController.find')
+  .middleware('auth')
 
 Route.post('/sessions', 'SessionController.create')
 
