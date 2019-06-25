@@ -36,11 +36,8 @@ Route.resource('maintenances', 'MaintenanceController')
 
 Route.resource('radars', 'RadarController')
   .apiOnly()
-  .middleware('auth')
 
 Route.resource('radar/statuses', 'StatusController')
   .apiOnly()
-  .middleware('auth')
 
 Route.get('radar/:id/statuses', 'StatusController.info')
-  .middleware('auth')
