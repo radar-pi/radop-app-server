@@ -37,15 +37,15 @@ class RadarController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async store ({ request, auth }) {
-    const { id } = auth.user
+  async store ({ request }) {
     const data = request.only([
       'name',
       'latitude',
-      'longitude'
+      'longitude',
+      'user_id'
     ])
 
-    const radar = await Radar.create({ ...data, user_id: id })
+    const radar = await Radar.create({ ...data })
 
     return radar
   }
@@ -97,12 +97,8 @@ class RadarController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async destroy ({ params, response, auth }) {
+  async destroy ({ params }) {
     const radar = await Radar.findOrFail(params.id)
-
-    if (radar.user_id !== auth.user.id) {
-      return response.status(401).send({error: 'Not authorized'})
-    }
 
     await radar.delete()
   }
