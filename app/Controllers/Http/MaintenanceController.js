@@ -1,6 +1,7 @@
 'use strict'
 
 const Maintenance = use('App/Models/Maintenance')
+const Database = use ('Database')
 
 /** @typedef {import('@adonisjs/framework/src/Request')} Request */
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
@@ -62,6 +63,27 @@ class MaintenanceController {
     const maintenance = await Maintenance.findOrFail(params.id)
 
     return maintenance
+  }
+
+  /**
+   * Display maintenances from a single radar.
+   * GET maintenances/radar/:id
+   *
+   * @param {object} ctx
+   * @param {Request} ctx.request
+   * @param {Response} ctx.response
+   * @param {View} ctx.view
+   */
+  async info ({ params }) {
+    const radar_id = params.id
+    const infos = await Database
+      .table('maintenances')
+      .where('radar_id', radar_id)
+      .orderBy('date', 'desc')
+      .orderBy('time', 'desc')
+      .limit(10)
+
+    return infos
   }
 
   /**

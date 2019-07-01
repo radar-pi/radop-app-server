@@ -41,3 +41,6 @@ Route.resource('radar/statuses', 'StatusController')
   .apiOnly()
 
 Route.get('radar/:id/statuses', 'StatusController.info')
+
+Route.get('/maintenances/radar/:id', 'MaintenanceController.info')
+  .middleware('auth')
